@@ -1,4 +1,4 @@
-# checkbox-contraptions
+# obcb-contraptions
 
  A list of all the fun stuff I made on [One Billion Checkboxes (OBCB)](https://checkbox.ing/)
 
