@@ -133,3 +133,4 @@ dist
 py/dump*.txt
 py/pagedata*.txt
 ./py/square_image.png
+retrobot/games/*

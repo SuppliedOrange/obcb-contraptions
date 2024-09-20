@@ -1,0 +1,15 @@
+node_modules
+*.gif
+*.mp4
+*.png
+*.gb
+*.gba
+*.sfc
+*.smc
+*.sav
+*.nes
+frames.txt
+.env
+data
+forever
+docker-compose.yml
