@@ -1,0 +1,24 @@
+{
+  "name": "ball",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@jimp/types": "^1.1.5",
+    "canvas": "^2.11.2",
+    "floyd-steinberg": "^1.0.6",
+    "jimp": "^1.2.0",
+    "sharp": "^0.33.5",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/floyd-steinberg": "^1.0.3",
+    "@types/pngjs": "^6.0.5",
+    "@types/ws": "^8.5.12"
+  }
+}

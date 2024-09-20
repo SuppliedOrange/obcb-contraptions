@@ -1,0 +1,30 @@
+{
+  "name": "command-line-draw",
+  "version": "1.2.2",
+  "description": "",
+  "main": "./lib/cmdDraw.js",
+  "types": "./lib/cmdDraw.d.ts",
+  "scripts": {
+    "test": "node ./test/pong"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "keywords": [
+    "game",
+    "command line",
+    "terminal",
+    "cli",
+    "draw",
+    "animation"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/liambloom/command-line-draw"
+  },
+  "author": "Liam Bloom (https://liambloom.herokuapp.com)",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+  }
+}
