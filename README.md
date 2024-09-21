@@ -60,7 +60,7 @@ I think this should work, I think. I just hacked the javascript to show me the
 <img
     src="./readme_images/run_once_example.png"
     alt="an image being rendered on checkboxes"
-    height="500"
+    height="500rem"
 >
 </p>
 
@@ -91,7 +91,7 @@ I think this should work, I think. I just hacked the javascript to show me the
 <img
     src="./readme_images/run_display_example.gif"
     alt="a series of images being rendered one after another on checkboxes"
-    height="500"
+    height="500rem"
 >
 </p>
 
@@ -104,7 +104,7 @@ I think this should work, I think. I just hacked the javascript to show me the
 <img
     src="./readme_images/run_clock_example.gif"
     alt="a digital clock rendered on checkboxes"
-    height="500"
+    height="500rem"
 >
 </p>
 
@@ -122,7 +122,7 @@ This is obviously a sped-up version but you get the idea.
 <img
     src="./readme_images/run_pong_example.gif"
     alt="a digital clock rendered on checkboxes"
-    height="500"
+    height="500rem"
 >
 </p>
 
@@ -135,7 +135,7 @@ This is obviously a sped-up version but you get the idea.
 <img
     src="./readme_images/run_ttt_example.gif"
     alt="a digital clock rendered on checkboxes"
-    height="500"
+    height="500rem"
 >
 </p>
 
@@ -166,7 +166,7 @@ We've played actual games on the emulator!
 <img
     src="./readme_images/retro_1.png"
     alt="a digital clock rendered on checkboxes"
-    height="500"
+    height="500rem"
 >
 </p>
 
@@ -176,7 +176,7 @@ We've played actual games on the emulator!
 <img
     src="./readme_images/retro-2.gif"
     alt="a digital clock rendered on checkboxes"
-    height="200"
+    height="200rem"
 >
 </p>
 
@@ -191,7 +191,7 @@ We've played actual games on the emulator!
 <img
     src="./readme_images/retro-3.gif"
     alt="a digital clock rendered on checkboxes"
-    height="500"
+    height="500rem"
 >
 </p>
 
@@ -227,7 +227,7 @@ a 32768 x 32768 pixel square.
 <img
     src="./readme_images/generated_square.png"
     alt="a digital clock rendered on checkboxes"
-    height="500"
+    height="500rem"
 >
 </p>
 
@@ -249,7 +249,7 @@ fix this.
 <img
     src="./readme_images/render_dither_grayscale.png"
     alt="a digital clock rendered on checkboxes"
-    height="500"
+    height="500rem"
 >
 </p>
 
@@ -293,7 +293,7 @@ such weird amounts give us the correct image we need on the board? I'll never kn
 <img
     src="./readme_images/square_preview.gif"
     alt="a digital clock rendered on checkboxes"
-    height="400"
+    height="400rem"
 >
 </p>
 
