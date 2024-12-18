@@ -39,6 +39,7 @@ I think this should work, I think. I just hacked the javascript to show me the
 ## Contents
 
 + [My motive for all of this](#motive)
++ [Installing Dependencies](#installing-dependencies)
 + [Generating a single image](#generating-an-image-on-a-page-one-time)
 + [Generating a slideshow of images](#generating-a-slideshow-of-images)
 + [Generating a digital clock](#generating-a-digital-clock)
@@ -296,6 +297,15 @@ such weird amounts give us the correct image we need on the board? I'll never kn
     height="400rem"
 >
 </p>
+
+## Installing Dependencies
+
+#### In the root directory
++ Run `npm install` (nodejs is a pre-requisite)
+#### In the /retrobot directory
++ Run `npm install`
+### In the /py directory
++ Run `python -m pip install -r requirements.txt` (python is a pre-requisite)
 
 ## Motive
 
