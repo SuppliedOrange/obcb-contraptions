@@ -1,0 +1,5 @@
+websocket-client
+pymongo
+pillow
+numpy
+opencv-python
