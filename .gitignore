@@ -134,3 +134,4 @@ py/dump*.txt
 py/pagedata*.txt
 ./py/square_image.png
 retrobot/games/*
+renders/korone_vinyl_*.png

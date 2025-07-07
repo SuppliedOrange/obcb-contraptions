@@ -6,15 +6,15 @@ import sharp from 'sharp';
 // any pixelIndex on the 32768 square = (column * 32768) - (32768 - row )
 // wait no, opposite? yeah, column is row and vice versa. I don't know why.
 // 163807233 fischl, 327652232 for korone, 393195232 for megumin
-const startIndex = 393195232;
+const startIndex = 327652232;
 // the width of the image.
-const widthImage = 5000;
+const widthImage = 422; // Use original width of korone vinyl
 // The current page that it has loaded and navigated to.
 let page = 1;
 // 60 / width of canvas
 const gridWidth = 32768;
 // Image path
-const image_path = './renders/render_dither_grayscale.png';
+const image_path = './images/korone-vinyl.png';
 // Binary pixels
 interface BinaryPixelDetails {
     pixel: number,
