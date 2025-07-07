@@ -28,12 +28,7 @@ const logBinaryPixelsAndRenderImage = false;
 // 128 for fischl, 200 for korone.
 const image_threshold = 128;
 
-// IMPORTANT! YOU MUST CHANGE THIS. IDFK WHY. You'll need 6 for 5k width, 1 for 1k width on a square.
-// 6 for fischl, 4 for korone
-const targetHeightMultiplier = 6;
-// It will vary based on the height of the image itself.
-// You'd wanna ideally render once with this set to 1, see how bad it messed up and change it's multiplier accordingly. Why does it fail like this? :(
-// I've rendered an image out of the binary pixels we get and it seems to be perfectly fine. I hate this.
+// Fixed: No longer need targetHeightMultiplier due to corrected image-to-board mapping
 
 async function main() {
 
@@ -45,10 +40,6 @@ async function main() {
 
         const image = await loadImage(imagePath);
         let targetHeight = Math.floor(image.height * (targetWidth / image.width));
-        if (drawImageFromBinaryPixels) targetHeight = targetHeight * targetHeightMultiplier // IMPORTANT! YOU MUST CHANGE THIS. IDFK WHY. You'll need 6 for 5k width, 1 for 1k widthon a square.
-        // It will vary based on the height of the image itself.
-        // You'd wanna ideally render once, see how bad it messed up and change it's multiplier accordingly. Why does it fail like this? :(
-        // I've rendered an image out of the binary pixels we get and it seems to be perfectly fine. I hate this.
 
         const canvas = createCanvas(targetWidth, targetHeight);
         const ctx = canvas.getContext('2d');
@@ -65,9 +56,12 @@ async function main() {
 
             for (let col = 0; col < targetWidth; col++) {
 
-                const pixelIndex = row * targetWidth + col;
-                const gridRow = startRow + Math.floor(pixelIndex / gridWidth);
-                const gridCol = (startCol + col) % gridWidth;
+                // Fixed mapping: each image row maps directly to board row, each column with proper offset
+                const gridRow = startRow + row;
+                const gridCol = startCol + col;
+                
+                // Ensure we don't exceed grid boundaries
+                if (gridRow >= 32768 || gridCol >= gridWidth) continue;
 
                 const originalIndex = (row * targetWidth + col) * 4;
                 const grayscale = (imageData.data[originalIndex] + imageData.data[originalIndex + 1] + imageData.data[originalIndex + 2]) / 3;

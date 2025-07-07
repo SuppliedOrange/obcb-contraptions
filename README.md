@@ -234,10 +234,7 @@ a 32768 x 32768 pixel square.
 
 ### Drawing on the large scale
 
-Here comes the tricky part, I never actually solved this myself.
-I came up with a hacky fix and I'm still disappointed in the way that it works.
-I wouldn't consider this a reliable method but I no longer have the patience to
-fix this.
+The image generation script now correctly maps image pixels to board pixels without any manual adjustments needed.
 
 #### 1: Dither an image
 
@@ -261,25 +258,12 @@ fix this.
 + Change the `startIndex`, `imagePath`, `imageInvert`, `imageThreshold`
 
 + You can run `run_generate_whatdoesitlooklike.ts` with the same settings
-  to see what the resulting image will look like. Keep `increaseHeight` to
-  false to see it normally, true to see it's true elongated state at which it
-  is rendered.
+  to see what the resulting image will look like.
 
 + Decide on the width of the image in `widthImage`. Remember that the canvas
   is 32k x 32k.
 
-+ The most important step is to find the right `targetHeightMultiplier`.
-
-This is a weird thing that was introduced because I might've messed up my math,
-but GPT couldn't find the problem either so I gave up.
-
-1) For a 1k x 1k image, the multiplier can be left at 1.
-2) For a 5k x 5k image, the multiplier must go to 6 (or 6.5 also works).
-3) For a 5k x 2.7k image, the multiplier can be 4 (or 4.5 is better).
-4) For a 5k x 6.3k image, the multiplier must go to 7 or 7.5.
-
-+ You see this weird pattern? I don't get it. Why does multiplying the height by
-such weird amounts give us the correct image we need on the board? I'll never know.
++ The image will now render correctly at any width/height without requiring manual adjustments. Each row in the resized image maps directly to a row on the board, with proper column offset calculated as: `boardPixelIndex = startIndex + row * gridWidth + col`
 
 + `leaveUnfilledBlank` will not touch pixels that are of "unfilled" / 0 / white colour.
 

@@ -28,13 +28,7 @@ const logBinaryPixelsAndRenderImage = false;
 // 128 for fischl, 200 for korone.
 const image_threshold = 128;
 
-// IMPORTANT! YOU MUST CHANGE THIS. IDFK WHY. You'll need 6 for 5kx5k width, 1 for 1kx1k width on a square, you'll need 7 for a 5kx6k portait image.
-// 6 for fischl, 4 for korone, 7 for megumin
-const targetHeightMultiplier = 7;
-// It will vary based on the height of the image itself.
-// You'd wanna ideally render once with this set to 1, see how bad it messed up and change it's multiplier accordingly. Why does it fail like this? :(
-// But if you're running it with "leaveUnfilledBlank", you are going to do this once, and you need to do it right. You're gonna have to.. wing it.
-// I've rendered an image out of the binary pixels we get and it seems to be perfectly fine. But no, it wants an elongated image.
+// Fixed: No longer need targetHeightMultiplier due to corrected image-to-board mapping
 
 const leaveUnfilledBlank = false;
 
@@ -53,9 +47,6 @@ async function main() {
             throw new Error("Could not get metadata");
         }
         let targetHeight = Math.floor(metadata.height * (targetWidth / metadata.width));
-
-        if (drawImageFromBinaryPixels) targetHeight = targetHeight * targetHeightMultiplier;
-        // if (drawImageFromBinaryPixels) targetWidth = Math.floor(targetWidth / targetHeightMultiplier);
         const resizedImage = await image.resize(targetWidth, targetHeight, { fit: "fill" }).raw().toBuffer();
 
         const startRow = Math.floor(startIndex / gridWidth);
@@ -68,10 +59,14 @@ async function main() {
 
             for (let col = 0; col < targetWidth; col++) {
 
-                const pixelIndex = row * targetWidth + col;
-                const gridRow = startRow + Math.floor(pixelIndex / gridWidth);
-                const gridCol = (startCol + col) % gridWidth;
+                // Fixed mapping: each image row maps directly to board row, each column with proper offset
+                const gridRow = startRow + row;
+                const gridCol = startCol + col;
+                
+                // Ensure we don't exceed grid boundaries
+                if (gridRow >= 32768 || gridCol >= gridWidth) continue;
 
+                const pixelIndex = row * targetWidth + col;
                 const grayscale = resizedImage[pixelIndex * bytesPerPixel]; // Grayscale value (0-255)
 
                 const dark = (invert) ? 0 : 1;
