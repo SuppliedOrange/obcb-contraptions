@@ -4,7 +4,9 @@
 
 ## Prerequisites
 
-You need to do `npm install` in the directory.
+See [Installing Dependencies](#installing-dependencies) before running the
+project. The root dependencies include `canvas`, which requires Node.js 20 for
+the pinned version used here.
 
 The `startIndex`, referenced in many files is the index of
 the pixel you are referring to.
@@ -301,7 +303,18 @@ such weird amounts give us the correct image we need on the board? I'll never kn
 ## Installing Dependencies
 
 #### In the root directory
-+ Run `npm install` (nodejs is a pre-requisite)
++ Node.js 20 is required for the pinned `canvas@2.11.2` dependency. Node.js 24
+  does not have a compatible pre-built `canvas` binary and falls back to a
+  native build that requires GTK/Cairo development files on Windows.
++ With [nvm-windows](https://github.com/coreybutler/nvm-windows) installed, run:
+
+```powershell
+nvm install 20.19.5
+nvm use 20.19.5
+npm ci
+```
+
++ Run `nvm use 20.19.5` again when opening a new terminal for this project.
 #### In the /retrobot directory
 + Run `npm install`
 ### In the /py directory
